@@ -14,6 +14,33 @@ This repo turns a simple `resume.md` file into a polished, professionally-styled
 
 No more wrestling with Word. No more "can you send me a PDF?" emails. Just `git push` and your resume magically appears on GitHub Pages.
 
+## Templates
+
+Get started quickly with these professionally-styled templates:
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+### Resume Template
+
+[![Resume Template Preview](templates/template-resume-preview.png)](templates/template-resume.pdf)
+
+[**Download PDF**](templates/template-resume.pdf) · [View Markdown](templates/template-resume.md)
+
+</td>
+<td align="center" width="50%">
+
+### Cover Letter Template
+
+[![Cover Letter Template Preview](templates/template-cover-letter-preview.png)](templates/template-cover-letter.pdf)
+
+[**Download PDF**](templates/template-cover-letter.pdf) · [View Markdown](templates/template-cover-letter.md)
+
+</td>
+</tr>
+</table>
+
 ## The Pipeline
 
 ```
@@ -54,11 +81,16 @@ nix develop
 
 ```
 .
-├── resume.md           # Your resume in Markdown
-├── resume-style.css    # CSS that makes it pretty
-├── flake.nix           # Nix magic (builds on any platform)
-├── images/             # Screenshots, thumbnails, etc.
-└── .github/workflows/  # CI/CD pipeline for auto-builds
+├── resume.md                       # Your resume in Markdown
+├── resume-style.css                # CSS that makes it pretty
+├── flake.nix                       # Nix magic (builds on any platform)
+├── templates/
+│   ├── template-resume.md          # Resume template
+│   ├── template-cover-letter.md    # Cover letter template
+│   ├── template-resume-preview.png # Auto-generated preview
+│   └── template-cover-letter-preview.png
+├── images/                         # Screenshots, thumbnails, etc.
+└── .github/workflows/              # CI/CD pipeline for auto-builds
 ```
 
 ## How It Works

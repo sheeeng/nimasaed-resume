@@ -30,8 +30,11 @@
               echo "Commands:"
               echo "  nix run .#pdf              - Generate resume.pdf (default)"
               echo "  nix run .#pdf -- file.md   - Generate file.pdf"
-              echo "  nix run .#html               - Generate resume.html (default)"
-              echo "  nix run .#html -- file.md    - Generate file.html"
+              echo "  nix run .#html             - Generate resume.html (default)"
+              echo "  nix run .#html -- file.md  - Generate file.html"
+              echo "  nix run .#png              - Generate resume-preview.png (default)"
+              echo "  nix run .#png -- file.pdf  - Generate file-preview.png from PDF"
+              echo "  nix run .#png -- file.md   - Build PDF then generate preview"
               echo ""
             '';
           };
@@ -72,6 +75,23 @@
               -o "$OUTPUT"
             echo "Done! Created $OUTPUT"
           '';
+
+          buildPng = pkgs.writeShellScriptBin "build-resume-png" ''
+            set -e
+            INPUT="''${1:-resume.pdf}"
+
+            # If input is .md, build PDF first using buildPdf
+            if [[ "$INPUT" == *.md ]]; then
+              ${buildPdf}/bin/build-resume-pdf "$INPUT"
+              INPUT="''${INPUT%.md}.pdf"
+            fi
+
+            # Generate PNG preview
+            OUTPUT="''${INPUT%.pdf}-preview.png"
+            echo "Generating $OUTPUT from $INPUT..."
+            ${pkgs.poppler-utils}/bin/pdftoppm -png -singlefile -r 150 "$INPUT" "''${OUTPUT%.png}"
+            echo "Done! Created $OUTPUT"
+          '';
         in
         {
           pdf = {
@@ -82,6 +102,11 @@
           html = {
             type = "app";
             program = "${buildHtml}/bin/build-resume-html";
+          };
+
+          png = {
+            type = "app";
+            program = "${buildPng}/bin/build-resume-png";
           };
 
           default = {

@@ -1,4 +1,5 @@
 # Generated files
 *.pdf
+!templates/*.pdf
 
 temp/
