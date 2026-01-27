@@ -1,5 +1,5 @@
 
-# Your Name test {.resume-name}
+# Your Name {.resume-name}
 
 **Your Title | Another Title <br> Additional Title | More Titles**
 
