@@ -50,7 +50,7 @@
             echo "Building $OUTPUT from $INPUT..."
             ${pkgs.pandoc}/bin/pandoc "$INPUT" \
               --standalone \
-              --css=resume-style.css \
+              --css=${self}/resume-style.css \
               -o - | ${pkgs.python312Packages.weasyprint}/bin/weasyprint - "$OUTPUT"
             echo "Done! Created $OUTPUT"
           '';
@@ -62,7 +62,8 @@
             echo "Building $OUTPUT from $INPUT..."
             ${pkgs.pandoc}/bin/pandoc "$INPUT" \
               --standalone \
-              --css=resume-style.css \
+              --css=${self}/resume-style.css \
+              --embed-resources \
               --metadata title="Resume" \
               -o "$OUTPUT"
             echo "Done! Created $OUTPUT"
