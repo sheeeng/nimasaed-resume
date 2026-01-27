@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.7;
     color: var(--text);
     max-width: 850px;
@@ -45,7 +45,7 @@ a:hover {
 }
 
 /* Header - Name */
-h1#nima-saed {
+h1.resume-name {
     font-size: 2.5rem;
     color: var(--primary);
     text-align: center;
@@ -60,7 +60,7 @@ header#title-block-header {
 }
 
 /* Tagline under name */
-h1#nima-saed + p {
+h1.resume-name + p {
     text-align: center;
     color: var(--text-light);
     font-size: 1.05rem;
@@ -68,7 +68,7 @@ h1#nima-saed + p {
 }
 
 /* Contact list */
-h1#nima-saed + p + ul {
+h1.resume-name + p + ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -80,15 +80,15 @@ h1#nima-saed + p + ul {
     border-bottom: 2px solid var(--primary);
 }
 
-h1#nima-saed + p + ul li {
+h1.resume-name + p + ul li {
     font-size: 0.95rem;
 }
 
-h1#nima-saed + p + ul li a {
+h1.resume-name + p + ul li a {
     color: var(--text);
 }
 
-h1#nima-saed + p + ul li a:hover {
+h1.resume-name + p + ul li a:hover {
     color: var(--accent);
 }
 
@@ -286,11 +286,11 @@ p img:hover {
         font-size: 15px;
     }
 
-    h1#nima-saed {
+    h1.resume-name {
         font-size: 2rem;
     }
 
-    h1#nima-saed + p + ul {
+    h1.resume-name + p + ul {
         flex-direction: column;
         align-items: center;
         gap: 8px;

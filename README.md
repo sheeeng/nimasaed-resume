@@ -32,10 +32,10 @@ You need [Nix](https://nixos.org/download.html) with flakes enabled. That's it. 
 
 ```bash
 # Build PDF (default: resume.md → resume.pdf)
-nix run .#build
+nix run .#pdf
 
 # Build a different file
-nix run .#build -- my-other-resume.md
+nix run .#pdf -- my-other-resume.md
 
 # Build HTML for previewing
 nix run .#html
@@ -66,7 +66,7 @@ nix develop
 ### Local Build Flow
 
 The `flake.nix` defines two apps:
-- `build` - Pipes Markdown through Pandoc (outputs HTML) → WeasyPrint (outputs PDF)
+- `pdf` - Pipes Markdown through Pandoc (outputs HTML) → WeasyPrint (outputs PDF)
 - `html` - Just the Pandoc step for quick previews
 
 ### CI/CD Flow
@@ -74,7 +74,7 @@ The `flake.nix` defines two apps:
 On every push to `main`:
 1. GitHub Actions spins up an Ubuntu runner
 2. Installs Nix (using [Determinate Systems' installer](https://github.com/DeterminateSystems/nix-installer-action))
-3. Runs `nix run .#build`
+3. Runs `nix run .#pdf`
 4. Uploads the PDF as an artifact
 5. Deploys to GitHub Pages
 
