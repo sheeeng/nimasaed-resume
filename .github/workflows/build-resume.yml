@@ -57,15 +57,15 @@ jobs:
             resume.pdf
             index.html
 
-      #- name: Upload template artifacts
-      #  uses: actions/upload-artifact@v4
-      #  with:
-      #    name: templates
-      #    path: |
-      #      templates/template-resume.pdf
-      #      templates/template-cover-letter.pdf
-      #      templates/template-resume-preview.png
-      #      templates/template-cover-letter-preview.png
+      - name: Upload template artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: templates
+          path: |
+            templates/template-resume.pdf
+            templates/template-cover-letter.pdf
+            templates/template-resume-preview.png
+            templates/template-cover-letter-preview.png
 
       - name: Commit preview images and PDFs
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
@@ -93,11 +93,11 @@ jobs:
           name: resume
           path: _site/
 
-      - name: Download template artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: templates
-          path: _site/templates/
+      #- name: Download template artifacts
+      #  uses: actions/download-artifact@v4
+      #  with:
+      #    name: templates
+      #    path: _site/templates/
 
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
