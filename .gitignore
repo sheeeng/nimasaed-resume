@@ -1,5 +1,5 @@
 # Generated files
 *.pdf
-!templates/*.pdf
+*.html
 
 temp/
