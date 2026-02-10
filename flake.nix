@@ -63,7 +63,7 @@
               --standalone \
               --css=${self}/resume-style.css \
               -B "$VERSION_FILE" \
-              -o - | ${pkgs.python312Packages.weasyprint}/bin/weasyprint - "$OUTPUT"
+              -o - | ${pkgs.python312Packages.weasyprint}/bin/weasyprint --optimize-images --dpi 600 - "$OUTPUT"
 
             rm -f "$VERSION_FILE"
             echo "Done! Created $OUTPUT"
