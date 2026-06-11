@@ -6,7 +6,6 @@
 - [nmsd.xyz](https://nmsd.xyz)
 - [LinkedIn](https://www.linkedin.com/in/nimasaed/)
 - [nima@nmsd.xyz](mailto:nima@nmsd.xyz)
-- [00 31 6 14 61 20 95](tel:0031-6-14-61-20-95)
 
 ## Summary
 
